@@ -1,0 +1,9 @@
+import numpy as np
+from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+X, Y, Z = np.mgrid[-10:10:100j, -10:10:100j, -10:10:100j]
+T = np.sin(X*Y*Z)/(X*Y*Z)
+T=T[:,:,0]
+im = plt.imshow(T, cmap='hot')
+plt.colorbar(im, orientation='vertical')
+plt.show()
