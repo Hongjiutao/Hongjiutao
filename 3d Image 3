@@ -1,0 +1,19 @@
+import numpy as np
+from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib as mpl
+X, Y = np.mgrid[-10:10:100j, -10:10:100j]
+Z = (X**2+Y**2)/10 #definition of f
+T = np.sin(X*Y*Z)
+norm = mpl.colors.Normalize(vmin=-1, vmax=1)
+X, Y= np.mgrid[-10:10:101j, -10:10:101j]
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+for i in np.linspace(-1,1,5):
+    Z = np.zeros(X.shape)+i
+    T = np.sin(X*Y*Z)
+    T = mpl.cm.hot(T)
+    ax.plot_surface(X, Y, Z, facecolors=T, linewidth=0, alpha = 0.5, cstride 
+        = 10, rstride = 10)
+
+plt.show()
